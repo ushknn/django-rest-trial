@@ -6,3 +6,9 @@ class UserInfo(models.Model):
     birth_day = models.DateField(verbose_name='生年月日')                                       # 生年月日
     age = models.PositiveSmallIntegerField(verbose_name='年齢',null=True,unique=False)         # 年齢
     created_at = models.DateTimeField(verbose_name='作成日時',auto_now_add=True)                # 登録日時
+
+
+class Task(models.Model):
+    task = models.ForeignKey(UserInfo, on_delete=models.CASCADE)
+    task_detail = models.CharField(max_length=200)
+    priority = models.IntegerField(default=0)

@@ -16,12 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from trial_app.views import UserInfoViewSet
+from trial_app.views import UserInfoViewSet, TaskViewSet
 
 # DefaultRouter クラスのインスタンスを代入
 defaultRouter = routers.DefaultRouter()
 # userInfo/ にUserInfoViewSetをルーティングする
 defaultRouter.register('userInfo',UserInfoViewSet)
+defaultRouter.register('task', TaskViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

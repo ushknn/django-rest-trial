@@ -9,6 +9,6 @@ class UserInfo(models.Model):
 
 
 class Task(models.Model):
-    task = models.ForeignKey(UserInfo, on_delete=models.CASCADE)
+    user_info = models.ForeignKey(UserInfo, on_delete=models.CASCADE, related_name='user')
     task_detail = models.CharField(max_length=200)
     priority = models.IntegerField(default=0)

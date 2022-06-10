@@ -7,9 +7,12 @@ class UserInfoSerializer(serializers.ModelSerializer):
         model = UserInfo
         # json で出力するフィールド
         fields = ('id','user_name', 'birth_day','age','created_at')
+        fields = '__all__'
 
 class TaskSerializer(serializers.ModelSerializer):
+    user_info = UserInfoSerializer()
     class Meta:
         model = Task
         # json で出力するフィールド
-        fields = ('id','task_detail')
+        # fields = ('id','task_detail')
+        fields = '__all__'
